@@ -1,0 +1,5 @@
+APPURL=http://localhost
+PORT=4000
+MONGOURI=mongodb://localhost:27017/myapp
+MONGOUSER=username
+MONGOPASS=password

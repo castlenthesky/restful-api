@@ -1,0 +1,1 @@
+based on https://softwareontheroad.com/ideal-nodejs-project-structure/?utm_source=share&utm_medium=ios_app
