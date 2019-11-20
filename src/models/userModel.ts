@@ -37,7 +37,7 @@ const userModel = new mongoose.Schema(
 
     title: {
       type: String,
-      default: 'auditor',
+      default: 'Aspiring Programmer',
     }
   },
   { timestamps: true },
