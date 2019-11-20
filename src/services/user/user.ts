@@ -2,28 +2,36 @@ export default function buildMakeUser ({Id, crypto, argon2, sanitize, makeSource
   return function makeUser ({
     id = Id.makeId(),
     username,
-    hash,
+    email,
     salt,
-    createdOn = Date.now(),
-    source,
-    modifiedOn = Date.now(),
+    password,
+    firstname,
+    lastname,
     role = 'user',
     title = 'Aspiring Programmer',
+    createdOn = Date.now(),
+    modifiedOn = Date.now(),
   } = {}) {
     if (!Id.isValidId(id)) {
       throw new Error('User must have a valid ID.');
     }
-    if (!username || username.length < 8) {
-      throw new Error('New users must have a defined username of at least 8 characters.');
+    if (!username || username.length < 6) {
+      throw new Error('New users must have a defined username of at least 6 characters.');
     }
-    if (!hash || hash.length < 32) {
-      throw new Error('Users must define a password which must be hashed.');
+    if (!email || !Validator.isValidEmail(email)) {
+      throw new Error('User must provide a valid email for registration.')
     }
-    if (!salt) {
-      throw new Error('A salt must be stored.')
+    if (!salt || salt.length < 32) {
+      throw new Error('A salt must be provided for hashing a user\'s password.');
     }
-    if (!source) {
-      throw new Error('Username must have a source.');
+    if (!password) {
+      throw new Error('A salted and hashed password must be defined for the user.')
+    }
+    if (!firstname) {
+      firstname = null,
+    }
+    if (!lastname) {
+      lastname = null,
     }
     if (!role) {
       throw new Error('A user must have a defined role.');
@@ -37,7 +45,7 @@ export default function buildMakeUser ({Id, crypto, argon2, sanitize, makeSource
     return Object.freeze({
       getId: () => id,
       getUsername: () => username,
-      getHash: () => hash || (hash = makeHash()),
+      getHash: () => hash,
       getSalt: () => salt,
       getCreatedOn: () => createdOn,
       getSource: () => source,
@@ -45,9 +53,5 @@ export default function buildMakeUser ({Id, crypto, argon2, sanitize, makeSource
       getRole: () => role,
       getTitle: () => title,
     })
-
-    function makeHash() {
-      return argon2()
-    }
   }
 }
