@@ -1,7 +1,8 @@
-export default function buildMakeHash ({ crypto, argon2i, sanitizePassword }) {
-  return function makeHash () {
+export default function buildMakeHash ({ argon2i, sanitizePassword, makeBuffer }) {
+  return function makeHash (password: string, salt: string) {
     // TODO: Create a hashing proceedure.
     // Use Argon2 (https://www.npmjs.com/package/argon2-ffi) and cryptographically secure hashes.
-    console.log('Making a hash...')
+    return argon2i.hash(sanitizePassword(password), makeBuffer(salt, 'utf8'))
+
   }
 }
