@@ -17,7 +17,7 @@ function router() {
           const newUser = user.toJSON();
           newUser.links = {};
           newUser.links.allUsers = `http://${req.headers.host}/api/users/`;
-          newUser.links.self = `http://${req.headers.host}/api/users/?_id=${user._id}`;
+          newUser.links.self = `http://${req.headers.host}/api/users/${user._id}`;
           newUser.links.role = `http://${req.headers.host}/api/users?role=${user.role}`
           return newUser;
         })
@@ -47,6 +47,10 @@ function router() {
   
   router.route('/:userID')
     .get((req, res) => {
+      const returnUser = req.user.toJSON();
+      returnUser.links = {};
+      returnUser.links.allUsers = `http://${req.headers.host}/api/users/`
+      returnUser.links.self = `http://${req.headers.host}/api/users/${user._id}`
       res.json(req.user)
     })
     .put((req, res) => {
