@@ -7,3 +7,4 @@ This API seeks to include the best practices of application development outlined
 
 ## Authentication
 * [You Don't Need Passport](https://softwareontheroad.com/nodejs-jwt-authentication-oauth/)
+* [Authentication Best Practices](https://www.reddit.com/r/node/comments/dx2g93/what_are_the_good_practices_to_nodejs_web_app/)

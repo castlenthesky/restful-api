@@ -13,22 +13,6 @@ const makeHash = buildMakeHash({ argon2i, sanitizePassword, makeBuffer })
 // const makeSource = buildMakeSource({ isValidIp })
 // const makeUser = buildMakeUser({ Id, makeHash, sanitizePassword, makeSource })
 
-
-function makeUser({
-    username
-  } = {}) {
-    if (!username) {
-      throw new Error('A username must be defined.')
-    }
-   
-    return Object.freeze({
-     getUsername: () => username,
-   })
- }
-
-const user = makeUser({username: 'castle'});
-console.log(user.getUsername());
-
 function sanitizePassword (password) {
   return sanitizeHtml(password)
 }
@@ -38,37 +22,7 @@ function makeBuffer(string) {
   return Buffer.from(string, 'utf8')
 }
 
-// async function makeUser (
-//   username: string,
-//   password: string,
-//   email: string,
-//   salt: string,
-//   firstname: string,
-//   lastname: string,
-//   role='user',
-//   title='Aspiring Programmer',
-//   createdOn = Date.now(),
-//   modifiedOn = Date.now(),
-//   ) {
-//   const userRecord = {
-//     username: username,
-//     email: email,
-//     salt: salt,
-//     password: await makeHash(password, salt),
-//     firstname: firstname,
-//     lastname: lastname,
-//     role: role,
-//     title: title,
-//     createdOn: createdOn,
-//     modifiedOn: modifiedOn,
-//   }
-//   console.log(userRecord)
-//   return userRecord
-// }
-
-// makeUser('castle', 'password','something@gmail.com', makeSalt(32), 'Brian', 'Henson', 'user', 'ia')
-
-export default makeUser
+// export default makeUser
 
 function isValidIp (ip: string) {
   return ipRegex({ exact: true }).test(ip)
