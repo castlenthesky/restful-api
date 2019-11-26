@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as mongoose from 'mongoose';
+import { stat } from 'fs';
 
 function router() {
   const router = express.Router();
@@ -50,8 +51,9 @@ function router() {
       const returnUser = req.user.toJSON();
       returnUser.links = {};
       returnUser.links.allUsers = `http://${req.headers.host}/api/users/`
-      returnUser.links.self = `http://${req.headers.host}/api/users/${user._id}`
-      res.json(req.user)
+      returnUser.links.self = `http://${req.headers.host}/api/users/${req.user._id}`
+      returnUser.links.role = `http://${req.headers.host}/api/users?role=${req.user.role}`
+      res.json(returnUser)
     })
     .put((req, res) => {
       const { user } = req;
