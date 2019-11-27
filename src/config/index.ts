@@ -15,6 +15,7 @@ export default {
 
   // MonngoDB connection string.
   mongoURI: process.env.MONGOURI,
+  mongoDB: process.env.MONGODB,
   mongoUser: process.env.MONGOUSER,
   mongoPass: process.env.MONGOPASS,
 }
