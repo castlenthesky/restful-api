@@ -1,7 +1,4 @@
 import * as express from 'express';
-import * as mongoose from 'mongoose';
-import { stat } from 'fs';
-import * as db from '../loaders'
 import adaptRequest from '../helpers/adapt-request'
 import makeUsersEndpoints from '../users/usersController'
 import usersList from './user-list'

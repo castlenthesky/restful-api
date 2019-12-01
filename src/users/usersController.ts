@@ -31,35 +31,32 @@ export default function makeUsersEndpoints ({
 }
 
 async function getUsers (httpRequest) {
+  
  return {
    headers: {
      'Content-Type': 'application/json'
    },
    statusCode: 200,
-   data: JSON.stringify({
-     username: 'castle',
-     password: 'password'
-    })
+   data: JSON.stringify('Hello')
   }
-}
-//   const {id} = httpRequest.pathParams || {}
-//   const { max, before, after } = httpRequest.queryParams || {}
+  // const {id} = httpRequest.pathParams || {}
+  // const { max, before, after } = httpRequest.queryParams || {}
 
-//   const result = id
-//     ? await contactList.findById({ userId: id})
-//     : await contactList.getItems({ max, before, after })
-//   return {
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     statusCode: 200,
-//     data: JSON.stringify(result)
-//   }
-// }
+  // const result = id
+  //   ? await contactList.findById({ userId: id})
+  //   : await contactList.getItems({ max, before, after })
+  // return {
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   statusCode: 200,
+  //   data: JSON.stringify(result)
+  // }
+}
+
 
 async function postUsers(httpRequest) {
   let userInfo = httpRequest.body
-  console.log(userInfo)
   if (!userInfo.username || !userInfo.password || !userInfo.email) {
     return {
       headers: {
@@ -78,7 +75,6 @@ async function postUsers(httpRequest) {
     role: userInfo.role,
     title: userInfo.title
   })
-  console.log(user);
   return {
     headers: {
       'Content-Type': 'application/json'
@@ -91,7 +87,8 @@ async function postUsers(httpRequest) {
       password: user.getPassword(),
       role: user.getRole(),
       title: user.getTitle(),
-      createdOn: user.getCreatedOn()
+      createdOn: user.getCreatedOn(),
+      modifiedOn: user.getModifiedOn()
     })
   }
   
