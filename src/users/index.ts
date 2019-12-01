@@ -3,19 +3,7 @@ import * as crypto from 'crypto'
 import sanitizeHtml from 'sanitize-html'
 import buildMakeUser from './user'
 
-const makeUser = buildMakeUser({makeSalt, makeBuffer, makeHash, isValidEmail})
-
-makeUser({
-  username: 'castle',
-  password: 'password',
-  email: 'email',
-}).then(newUser => {
-  // Do something with the new user.
-  for (let [key, value] of Object.entries(newUser)) {
-    console.log(key + ':' + value());
-  }
-  
-})
+const makeUser = buildMakeUser({makeSalt, makeHash, isValidEmail})
 
 export default makeUser
 

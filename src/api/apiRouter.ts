@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 
 function apiRouter() {
   const apiRouter = express.Router();
-  
+
   apiRouter.route('/')
     .get((req, res) => {
       // Get logic
@@ -26,7 +26,7 @@ function apiRouter() {
       return res.send('DELETE logic pending.')
     });
 
-    apiRouter.use('/users', require('./userRouter')());
+    apiRouter.use('/users', require('../users/usersRouter')());
     apiRouter.use('/posts', require('./postRouter')());
     apiRouter.use('/tasks', require('./taskRouter')());
 

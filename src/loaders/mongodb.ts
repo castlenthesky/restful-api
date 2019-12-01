@@ -1,15 +1,15 @@
-import { MongoClient, Db } from 'mongodb'
 import config from '../config';
-
+import { MongoClient, Db } from 'mongodb'
 
 export default async (): Promise<Db> => {
   console.log(`Connecting to server...`);
-  const client = new MongoClient(config.mongoURI, {
+
+  const db = new MongoClient(config.mongoURI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
   })
-  if (!client.isConnected()) {
-    await client.connect()
+  if (!db.isConnected()) {
+    await db.connect()
   }
-  return client.db(config.mongoDB)
+  return db
 }

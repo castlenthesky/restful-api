@@ -5,7 +5,7 @@ export default function makeUserList({ database }) {
     getUsers,
     // findById,
     // findByEmail,
-    add,
+    // add,
     // replace,
     // update,
     // remove,

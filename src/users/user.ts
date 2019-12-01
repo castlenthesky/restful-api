@@ -1,4 +1,4 @@
-export default function buildMakeUser({ makeSalt, makeBuffer, makeHash, isValidEmail}) {
+export default function buildMakeUser({ makeSalt, makeHash, isValidEmail}) {
   return async function makeUser ({
     username,
     email,

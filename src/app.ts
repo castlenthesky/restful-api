@@ -4,7 +4,6 @@ import * as express from 'express';
 async function startServer() {
   const app = express();
   await require('./loaders').default({ expressApp: app });
-  await require('./services/user')
 
   app.listen(config.port, err => {
     if (err) {

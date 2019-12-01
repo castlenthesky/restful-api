@@ -1,13 +1,14 @@
 import * as express from 'express';
 
 function router() {
-  const mainRouter = express.Router();
+  const router = express.Router();
 
-  mainRouter.use('/',    require('./appRouter')());
-  mainRouter.use('/api', require('./apiRouter')());
+  router.use('/users', require('../users/usersRouter')());
+  router.use('/posts', require('./postRouter')());
+  router.use('/tasks', require('./taskRouter')());
 
-  return mainRouter;
+
+  return router;
 }
 
 module.exports = router;
-
