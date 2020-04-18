@@ -9,6 +9,7 @@ Numerous resources were used to further my understanding of node, express, autho
 * [Bulletproof Node.js](https://softwareontheroad.com/ideal-nodejs-project-structure/)
 
 ## Authentication
+* [JWT Explained](https://github.com/makinhs/rest-api-tutorial)
 * [You Don't Need Passport](https://softwareontheroad.com/nodejs-jwt-authentication-oauth/)
 * [What if I Want to Use Passport?](https://www.youtube.com/watch?v=sakQbeRjgwg&list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x&index=1)
 * [Authentication Best Practices](https://www.reddit.com/r/node/comments/dx2g93/what_are_the_good_practices_to_nodejs_web_app/)

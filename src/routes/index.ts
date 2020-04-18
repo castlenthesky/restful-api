@@ -9,7 +9,7 @@ export default function router() {
   // router.use('/auth', authRouter())
 
   router.get('/', (req, res) => {
-    res.status(200).send('Welcome to the restful application.')
+    return res.status(200).send('Welcome to the restful application.')
   })
 
   return router
