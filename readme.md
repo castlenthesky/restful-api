@@ -1,5 +1,7 @@
 # Inspiration
-This API seeks to include the best practices of application development outlined in the following resources:
+This API serves as a learning opportunity and a showcase of my ability to apply sound coding concepts.
+
+Numerous resources were used to further my understanding of node, express, authorization, cryptography, and general API architecture. Primiary resources are detailed below.
 
 ## Architechture:
 * [Using Clean Architecture](https://www.youtube.com/watch?v=CnailTcJV_U&list=WL&index=8&t=0s)

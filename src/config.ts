@@ -1,4 +1,4 @@
-const dotenv = require('dotenv');
+import * as dotenv from 'dotenv'
 
 // Set the NODE_ENV to 'development' by default
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -9,7 +9,7 @@ if (!envConfig) {
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
 }
 
-export default {
+let config = {
   appurl: process.env.APPURL,
   port: parseInt(process.env.PORT, 10),
 
@@ -19,3 +19,5 @@ export default {
   mongoUser: process.env.MONGOUSER,
   mongoPass: process.env.MONGOPASS,
 }
+
+export default config
