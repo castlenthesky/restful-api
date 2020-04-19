@@ -1,5 +1,15 @@
-import passwordHasher from '../../common/passwordHasher'
-import { createUser } from './user'
+import { Router } from 'express'
+import * as serviceController from './controller'
 
-createUser(passwordHasher , {username: 'castlenthesky', password: 'password', email: 'castlenthesky@gmail.com'})
-  .then(user => console.log(user))
+export default function router() {
+  const router = Router()
+
+  router.route('/')
+    .get([serviceController.get])
+    .post([serviceController.post])
+    .put([serviceController.put])
+    .patch([serviceController.patch])
+    .delete([serviceController.remove])
+
+  return router
+}

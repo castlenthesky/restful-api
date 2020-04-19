@@ -1,4 +1,6 @@
-export async function createUser ( passwordHasher, userData: {
+import passwordHasher from '../../common/passwordHasher'
+
+export async function createUser (userData: {
   username: string;
   password: string;
   email: string;
@@ -15,7 +17,6 @@ export async function createUser ( passwordHasher, userData: {
     email: userData.email,
   })
 }
-
 
 // export default function buildMakeUser ({Id, crypto, argon2, sanitize, makeSource }) {
 //   return function makeUser ({
