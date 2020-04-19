@@ -11,7 +11,7 @@
     "start": "ts-node ./src/app.ts --experimental-modules",
     "dev": "nodemon ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ."
+    "build-setuplater": "tsc -p ."
   },
   "dependencies": {
     "@types/node": "^12.12.9",
