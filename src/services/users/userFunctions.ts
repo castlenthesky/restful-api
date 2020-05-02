@@ -1,4 +1,4 @@
-import passwordHasher from '../../common/passwordHasher'
+import {passwordHasher} from '../../common/helpers/passwordTools'
 
 export async function createUser (userData: {
   username: string;

@@ -19,6 +19,9 @@ let config = {
     db: process.env.MONGODB,
     username: process.env.MONGOUSER,
     password: process.env.MONGOPASS,
+  },
+  jwt: {
+    secret: process.env.SUPER_SECRET_TOKEN,
   }
 }
 

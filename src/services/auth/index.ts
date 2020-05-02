@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { hasCredentials, validCredentials } from '../../common/middlewares/userValidator'
-// import { generateToken } from './controller'
+import { generateToken } from './controller'
 
 export default function router() {
   const router = Router()
@@ -9,7 +9,7 @@ export default function router() {
     .post([
       hasCredentials,
       validCredentials,
-      // generateToken
+      generateToken
     ])
 
   return router

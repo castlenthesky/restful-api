@@ -3,7 +3,7 @@ import * as sanitizeHtml from 'sanitize-html'
 
 // Argon2 was selected for a hashing algorithm due to its security.
 // Read more here: https://password-hashing.net/
-export default async function passwordHasher( providedPassword: string ) {
+export async function passwordHasher( providedPassword: string ) {
   try {
     return await argon2.hash(sanitizeHtml(providedPassword), {
       // Argon2i is the suggested variant to use for password hashing.
@@ -14,5 +14,14 @@ export default async function passwordHasher( providedPassword: string ) {
     })
   } catch (err) {
     throw new Error('Error creating password hash: ' + err)
+  }
+}
+
+export async function passwordValidator(providedHash: string, providedPassword: string) {
+  try {
+    return await argon2.verify(providedHash, providedPassword)
+  } catch (err) {
+    console.log(err)
+    return false
   }
 }
