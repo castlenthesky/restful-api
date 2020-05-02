@@ -21,7 +21,8 @@ export default function router() {
         return res.status(404).send('No such user found.')
       })
     })
-
+    router.use('/:username', validToken)
+    
     router.route('/:username')
     .get([userController.getOne])
     .put([userController.put])

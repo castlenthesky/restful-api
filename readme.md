@@ -13,6 +13,7 @@ Numerous resources were used to further my understanding of node, express, autho
 * [You Don't Need Passport](https://softwareontheroad.com/nodejs-jwt-authentication-oauth/)
 * [What if I Want to Use Passport?](https://www.youtube.com/watch?v=sakQbeRjgwg&list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x&index=1)
 * [Authentication Best Practices](https://www.reddit.com/r/node/comments/dx2g93/what_are_the_good_practices_to_nodejs_web_app/)
+* [Policy Example 1](https://github.com/MeepLabs/express-graphql-boilerplate/blob/master/api/policies/auth.policy.js)
 
 ## Database
 * [Dev Mastery - MongoDB dependency injection](https://github.com/arcdev1/mm_express_api_example/blob/master/src/contacts/index.js)
