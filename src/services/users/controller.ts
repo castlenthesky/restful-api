@@ -16,7 +16,6 @@ export async function getOne (req: Request, res: Response) {
 
 export async function get (req: Request, res: Response) {
   userFunctions.list(req.body.query).then((userList) => {
-    console.log(userList)
     const returnUsers = []
     userList.forEach(element => {
       const el = element.toJSON()
@@ -26,10 +25,8 @@ export async function get (req: Request, res: Response) {
       delete el.password
       returnUsers.push(el)
     });
-    // console.log(returnUsers)
     return res.send(returnUsers);
   })
-  // console.log(userList)
 }
 
 export async function post (req: Request, res: Response): Response {

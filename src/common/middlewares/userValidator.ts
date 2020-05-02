@@ -33,5 +33,9 @@ export async function validCredentials (req: Request, res: Response, next: Next)
     return res.status(401).sned('Invalid username or password, try again.')
   }
 
+  req.user = foundUser.toJSON()
+  delete req.user._id
+  delete req.user.__v
+  delete req.user.password
   return next()
 }

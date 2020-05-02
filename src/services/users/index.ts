@@ -1,11 +1,15 @@
 import { Router } from 'express'
 import * as userController from './controller'
+import validToken from '../../common/middlewares/tokenValidator'
 
 export default function router() {
   const router = Router()
 
   router.route('/')
-    .get([userController.get])
+    .get([
+      validToken,
+      userController.get
+    ])
     .post([userController.post])
 
     router.use('/:username', (req, res, next) => {
