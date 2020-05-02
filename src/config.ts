@@ -14,10 +14,12 @@ let config = {
   port: parseInt(process.env.PORT, 10),
 
   // MonngoDB connection string.
-  mongoURI: process.env.MONGOURI,
-  mongoDB: process.env.MONGODB,
-  mongoUser: process.env.MONGOUSER,
-  mongoPass: process.env.MONGOPASS,
+  mongo: {
+    url: process.env.MONGOURI,
+    db: process.env.MONGODB,
+    username: process.env.MONGOUSER,
+    password: process.env.MONGOPASS,
+  }
 }
 
 export default config

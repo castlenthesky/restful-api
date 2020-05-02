@@ -1,11 +1,16 @@
 import { Router } from 'express'
+import { hasCredentials, validCredentials } from '../../common/middlewares/userValidator'
+// import { generateToken } from './controller'
 
 export default function router() {
   const router = Router()
 
-  router.get('/', (req, res) => {
-    return res.status(200).send('Welcome to the auth endpoint.')
-  })
+  router.route('/')
+    .post([
+      hasCredentials,
+      validCredentials,
+      // generateToken
+    ])
 
   return router
 }
