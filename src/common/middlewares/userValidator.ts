@@ -26,11 +26,11 @@ export async function validCredentials (req: Request, res: Response, next: Next)
   const [foundUser] = await userModel.findByUsername(req.body.username)
   // check for the user in the database
   if (!foundUser) {
-    return res.status(401).sned('username or password were not valid, try again')
+    return res.status(401).send('username or password were not valid, try again')
   }
   // validate the password provided against the hashed password for the found user
   if  (!await passwordValidator(foundUser.password, req.body.password)) {
-    return res.status(401).sned('Invalid username or password, try again.')
+    return res.status(401).send('Invalid username or password, try again.')
   }
 
   req.user = foundUser.toJSON()
