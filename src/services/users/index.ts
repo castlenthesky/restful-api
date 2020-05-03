@@ -9,6 +9,7 @@ export default function router() {
   router.route('/')
     .get([
       validToken,
+      allowedRoles(['admin']),
       userController.get
     ])
     .post([userController.post])
@@ -22,16 +23,24 @@ export default function router() {
         return res.status(404).send('No such user found.')
       })
     })
-    router.use('/:username', validToken)
     
+    router.use('/:username', validToken)
     router.route('/:username')
-    .get([userController.getOne])
-    .put([userController.put])
-    .patch([userController.patch])
+    .get([
+      userController.getOne,
+      ])
+    .put([
+      allowedRoles(['admin', 'self']),
+      userController.put,
+      ])
+    .patch([
+      allowedRoles(['admin', 'self']),
+      userController.patch,
+      ])
     .delete([
       allowedRoles(['admin']),
-      userController.remove
-    ])
+      userController.remove,
+      ])
 
   return router
 }
