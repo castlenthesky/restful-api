@@ -55,6 +55,7 @@ export async function post (req: Request, res: Response): Response {
 }
 
 export async function put (req: Request, res: Response) {
+  // userFunctions.patchUser(req.user.id, req.body)
   return res.status(200).send('Hello, thanks for putting.')
 }
 
@@ -63,5 +64,8 @@ export async function patch (req: Request, res: Response) {
 }
 
 export async function remove (req: Request, res: Response) {
-  return res.status(200).send('Hello, thanks for deleting.')
+  userFunctions.removeById(req.user.id).then(result => {
+    return res.status(201).send(`The following user was deleted: ${req.user.username}`)
+  })
+  // return res.status(200).send('Hello, thanks for deleting.')
 }

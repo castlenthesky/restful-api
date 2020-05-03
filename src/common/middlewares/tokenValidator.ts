@@ -10,7 +10,7 @@ import config from '../../config'
 import { Request, Response, Next } from 'express'
 import * as jwt from 'jsonwebtoken'
 
-export default async function requireToken (req: Request, res: Response, next: Next) {
+export async function validToken (req: Request, res: Response, next: Next) {
   // Check for an authorization header
   if (!req.headers['authorization']) {
     return res.status(403).send({msg: 'Format for Authorization: Bearer [token]'})

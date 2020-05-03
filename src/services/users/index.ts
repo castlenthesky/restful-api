@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as userController from './controller'
-import validToken from '../../common/middlewares/tokenValidator'
+import { validToken } from '../../common/middlewares/tokenValidator'
+import { allowedRoles } from '../../common/middlewares/roleValidator'
 
 export default function router() {
   const router = Router()
@@ -27,7 +28,10 @@ export default function router() {
     .get([userController.getOne])
     .put([userController.put])
     .patch([userController.patch])
-    .delete([userController.remove])
+    .delete([
+      allowedRoles(['admin']),
+      userController.remove
+    ])
 
   return router
 }

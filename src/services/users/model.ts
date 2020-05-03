@@ -104,28 +104,27 @@ export let patchUser = async (id, userData) => {
 };
 
 export let putUser = async (id, userData) => {
-  return new Promise((resolve, reject) => {
-    User.findById(id, (err, user) => {
-      if (err) reject(err);
-      for (let i in userData) {
-        user[i] = userData[i];
-      }
-      user.save((err, updatedUser) => {
-        if (err) return reject(err);
-        resolve(updatedUser);
-      });
-    });
-  });
+  // User.findByUsername()
+
+  // return new Promise((resolve, reject) => {
+  //   User.findById(id, (err, user) => {
+  //     if (err) reject(err);
+  //     for (let i in userData) {
+  //       user[i] = userData[i];
+  //     }
+  //     user.save((err, updatedUser) => {
+  //       if (err) return reject(err);
+  //       resolve(updatedUser);
+  //     });
+  //   });
+  // });
 };
 
-export let removeById = async (id) => {
-  return new Promise((resolve, reject) => {
-    User.remove({ _id: id }, (err) => {
+export async function removeById (id: string) {
+    User.deleteOne({ _id: id }, (err, result) => {
       if (err) {
-        reject(err);
-      } else {
-        resolve(err);
+        return err
       }
+      return result
     });
-  });
 };
