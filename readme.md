@@ -7,6 +7,7 @@ Numerous resources were used to further my understanding of node, express, autho
 * [Using Clean Architecture](https://www.youtube.com/watch?v=CnailTcJV_U&list=WL&index=8&t=0s)
 * [Designing a Clean REST API with Node.js](https://www.youtube.com/watch?v=fy6-LSE_zjI&feature=youtu.be)
 * [Bulletproof Node.js](https://softwareontheroad.com/ideal-nodejs-project-structure/)
+* [RESTful Web Service with Node, by Jonathan Mills](https://github.com/marioteik/RESTful-Web-Services-with-Node.js-and-Express-by-Jonathan-Mills/)
 
 ## Authentication
 * [JWT Explained](https://github.com/makinhs/rest-api-tutorial)

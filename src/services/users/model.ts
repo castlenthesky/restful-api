@@ -81,7 +81,7 @@ export let findByEmail = async (email) => {
 export async function createUser (userData) {
   const user = new User(userData);
   return user.save().then((result) => {
-    delete result.__id;
+    delete result._id;
     delete result.__v;
     delete result.password;
     return result;

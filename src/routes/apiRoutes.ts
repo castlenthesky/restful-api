@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import usersRouter from '../services/users'
+import devicesRouter from '../services/devices'
 
 export default function router() {
   const router = Router()
@@ -9,6 +10,7 @@ export default function router() {
   })
 
   router.use('/users', usersRouter())
+  router.use('/devices', devicesRouter())
 
   return router
 }
