@@ -11,7 +11,7 @@ if (!envConfig) {
 
 let config = {
   appurl: process.env.APPURL,
-  port: parseInt(process.env.PORT, 10),
+  port: parseInt(process.env.PORT, 10) || 8080,
 
   // MonngoDB connection string.
   mongo: {
@@ -21,7 +21,7 @@ let config = {
     password: process.env.MONGOPASS,
   },
   jwt: {
-    secret: process.env.SUPER_SECRET_TOKEN,
+    secret: process.env.SUPER_SECRET_KEY,
   }
 }
 
