@@ -1,47 +1,59 @@
 {
-  "name": "restful-api",
-  "author": "Brian Henson",
+  "name": "orraks-emporium",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/app.ts",
-  "license": "MIT",
-  "type": "module",
-  "private": true,
+  "main": "main.ts",
   "scripts": {
-    "start": "ts-node ./src/app.ts --experimental-modules",
+    "start": "npm run dev",
     "dev": "nodemon ./src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-setuplater": "tsc -p ."
+    "sandbox": "nodemon ./src/sandbox.ts",
+    "test": "mocha -r ts-node/register ./src/**/*.spec.ts -w -watch-files ./src/**/*.ts --diff false --full-trace false"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castlenthesky/orraks-emporium.git"
+  },
+  "author": "Brian Henson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/castlenthesky/orraks-emporium/issues"
+  },
+  "homepage": "https://github.com/castlenthesky/orraks-emporium#readme",
   "dependencies": {
-    "@types/node": "^12.12.9",
+    "@types/node": "^13.9.5",
     "argon2": "^0.26.2",
-    "argon2-ffi": "^1.1.2",
-    "bluebird": "^3.7.2",
+    "argon2-ffi": "^1.2.0",
     "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "ip-regex": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.9",
-    "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.9.1",
-    "path": "^0.12.7",
-    "reflect-metadata": "^0.1.13",
-    "sanitize-html": "^1.23.0",
-    "serve-favicon": "^2.5.0",
-    "ts-node": "^8.5.2",
-    "typescript": "^3.7.2"
+    "mongodb": "^3.5.5",
+    "nodemon": "^2.0.4",
+    "sanitize-html": "^1.27.0",
+    "short-id": "0.1.0-1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   },
   "nodemonConfig": {
+    "restartable": "rs",
     "ignore": [
-      "node_modules/*",
-      ".gitignore"
+      "node_modules/**/node_modules"
     ],
-    "delay": 2500
-  }
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development"
+    }
+  },
+  "mocha": {}
 }

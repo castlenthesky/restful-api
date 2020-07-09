@@ -1,0 +1,5 @@
+{
+  "mocha.subdirectory": "./test",
+  "mocha.files.glob": "./test/**/*.spec.ts",
+  "mocha.files.ignore": ["**/.git/**/*", "**/node_modules/**/*"]
+}

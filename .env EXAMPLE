@@ -1,0 +1,4 @@
+APPPORT=4000
+MONGOURL=mongodb+srv://<username>:<password>@cluster.mongodb.net/test
+MONGODBNAME=todo
+SECRET_JWT_KEY=secrettoken

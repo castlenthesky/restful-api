@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv'
+const dotenv = require("dotenv");
 
 // Set the NODE_ENV to 'development' by default
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 const envConfig = dotenv.config();
 
@@ -9,20 +9,21 @@ if (!envConfig) {
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
 }
 
-let config = {
-  appurl: process.env.APPURL,
-  port: parseInt(process.env.PORT, 10) || 8080,
-
-  // MonngoDB connection string.
+export default {
+  app: {
+    url: process.env.APPURL || "localhost",
+    port: process.env.PORT || 4000,
+  },
   mongo: {
-    url: process.env.MONGOURI,
-    db: process.env.MONGODB,
-    username: process.env.MONGOUSER,
-    password: process.env.MONGOPASS,
+    url: process.env.MONGOURL,
+    db: process.env.MONGODBNAME,
+    clientOptions: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      poolSize: 10,
+    },
   },
   jwt: {
-    secret: process.env.SUPER_SECRET_KEY,
-  }
-}
-
-export default config
+    secret: process.env.SECRET_JWT_KEY,
+  },
+};
