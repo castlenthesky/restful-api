@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { User, isValidUsername } from "../../sandbox";
+import { isValidUsername } from "./userFunctions";
 import { isValidPassword } from "../../helpers/index";
 
 describe("User Creation Tests", () => {
